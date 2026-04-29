@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --background-alt: #f7f6f3;
+  --foreground: #1a1714;
+  --muted: #f1ede4;
+  --muted-foreground: #6b6358;
+  --border: #e6e1d6;
+  --border-strong: #cfc6b3;
+  --card: #ffffff;
+  --accent: #cc785c;
+  --accent-foreground: #ffffff;
+  --code-bg: #f1ede4;
+  --rule: #e6e1d6;
+}
+
+.dark {
+  --background: #07070a;
+  --background-alt: #0f0f12;
+  --foreground: #f5f3ee;
+  --muted: #18181c;
+  --muted-foreground: #8b8a90;
+  --border: #1f1f24;
+  --border-strong: #2a2a30;
+  --card: #0f0f12;
+  --accent: #f97362;
+  --accent-foreground: #0a0a0c;
+  --accent-2: #a07cff;
+  --code-bg: #18181c;
+  --rule: #1f1f24;
+}
+
+:root {
+  --accent-2: #7c5af0;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-2: var(--accent-2);
+  --color-rule: var(--rule);
   --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-source-serif);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.font-display {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-feature-settings: "ss01", "liga";
+  letter-spacing: -0.02em;
+}
+
+.hairline {
+  border-color: var(--rule);
+}
+
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+summary {
+  cursor: pointer;
+}
+
