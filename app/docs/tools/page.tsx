@@ -1,5 +1,26 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ToolSurfaceDiagram } from "@/components/diagrams/tool-surface";
+
+export const metadata: Metadata = {
+  title: "Tools",
+  description:
+    "The OpenHive tool surface — how agents access the world, how tools are scoped to roles, and how to extend them.",
+  alternates: { canonical: "/docs/tools" },
+  openGraph: {
+    title: "Tools — OpenHive",
+    description:
+      "The OpenHive tool surface: how agents access the world and how to extend it.",
+    url: "/docs/tools",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tools — OpenHive",
+    description:
+      "The OpenHive tool surface: how agents access the world and how to extend it.",
+  },
+};
 
 export default function ToolsPage() {
   return (

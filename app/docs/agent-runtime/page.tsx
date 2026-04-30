@@ -1,6 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { DelegationToolCallDiagram } from "@/components/diagrams/delegation-tool-call";
 import { ToolPartitionDiagram } from "@/components/diagrams/tool-partition";
+
+export const metadata: Metadata = {
+  title: "Agent runtime",
+  description:
+    "How the OpenHive agent runtime works: delegation, tool calls, and how work is partitioned across an agent company.",
+  alternates: { canonical: "/docs/agent-runtime" },
+  openGraph: {
+    title: "Agent runtime — OpenHive",
+    description:
+      "Delegation, tool calls, and partitioning across an OpenHive agent company.",
+    url: "/docs/agent-runtime",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Agent runtime — OpenHive",
+    description:
+      "Delegation, tool calls, and partitioning across an OpenHive agent company.",
+  },
+};
 
 export default function AgentRuntimePage() {
   return (

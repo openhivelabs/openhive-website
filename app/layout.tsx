@@ -22,20 +22,56 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 });
 
+const SITE_URL = "https://openhive.dev";
+const SITE_TAGLINE = "Run a company of AI agents. Ship your own dashboard.";
+
 export const metadata: Metadata = {
-  title: "OpenHive — Build your AI company",
-  description: "Run a company of AI agents. Ship your own dashboard.",
-  metadataBase: new URL("https://openhive.dev"),
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "OpenHive — Build your AI company",
+    template: "%s — OpenHive",
+  },
+  description: SITE_TAGLINE,
+  applicationName: "OpenHive",
+  keywords: [
+    "OpenHive",
+    "AI agents",
+    "agent orchestration",
+    "multi-agent",
+    "open source",
+    "local-first",
+    "self-hosted",
+    "AI dashboard",
+  ],
+  alternates: { canonical: "/" },
   openGraph: {
     title: "OpenHive — Build your AI company",
-    description: "Run a company of AI agents. Ship your own dashboard.",
+    description: SITE_TAGLINE,
+    url: SITE_URL,
+    siteName: "OpenHive",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "OpenHive — Build your AI company",
-    description: "Run a company of AI agents. Ship your own dashboard.",
+    description: SITE_TAGLINE,
   },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "OpenHive",
+  url: SITE_URL,
+  logo: `${SITE_URL}/icon.svg`,
+  sameAs: ["https://github.com/openhivelabs/openhive"],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "OpenHive",
+  url: SITE_URL,
 };
 
 export default function RootLayout({
@@ -48,6 +84,14 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="relative min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <TopGradient />
           <HeaderHoneycomb />

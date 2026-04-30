@@ -1,5 +1,26 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
+
+export const metadata: Metadata = {
+  title: "Docs",
+  description:
+    "Engineering notes on how OpenHive is built — the agent runtime, tool surface, and the trade-offs behind each design choice.",
+  alternates: { canonical: "/docs" },
+  openGraph: {
+    title: "Docs — OpenHive",
+    description:
+      "Engineering notes on how OpenHive is built — runtime, tools, and design trade-offs.",
+    url: "/docs",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Docs — OpenHive",
+    description:
+      "Engineering notes on how OpenHive is built — runtime, tools, and design trade-offs.",
+  },
+};
 
 export default function DocsIndex() {
   return (
