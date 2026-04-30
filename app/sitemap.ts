@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://openhive.dev";
+const SITE_URL = "https://openhive.my";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

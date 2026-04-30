@@ -22,7 +22,7 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 });
 
-const SITE_URL = "https://openhive.dev";
+const SITE_URL = "https://openhive.my";
 const SITE_TAGLINE = "Run a company of AI agents. Ship your own dashboard.";
 
 export const metadata: Metadata = {
